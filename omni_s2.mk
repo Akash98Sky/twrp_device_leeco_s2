@@ -20,6 +20,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, vendor/omni/config/common.mk)
 $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.keystore=msm8952
+
 # Device identifier. This must come after all inclusions
 PRODUCT_NAME := omni_s2
 PRODUCT_DEVICE := s2
