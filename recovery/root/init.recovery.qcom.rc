@@ -7,9 +7,6 @@ on init
 on fs
     wait /dev/block/platform/soc.0/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc.0/${ro.boot.bootdevice} /dev/block/bootdevice
-
-on property:ro.crypto.state=encrypted
-    start sbinqseecomd
     
 # separate copy needed to use /sbin/linker64 instead of /system/bin/linker64
 service sbinqseecomd /sbin/qseecomd
@@ -24,11 +21,6 @@ service keymaster-3-0 /sbin/android.hardware.keymaster@3.0-service
     group root
     disabled
     seclabel u:r:recovery:s0
-
-on boot
-    # Workaround for adb not coming up
-    setprop sys.usb.config mtp,adb
-    setprop sys.usb.config adb
 
 on property:ro.crypto.state=encrypted
     start sbinqseecomd
