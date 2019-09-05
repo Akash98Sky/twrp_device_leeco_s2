@@ -90,3 +90,6 @@ TW_OREO_MR1_F2FS := true
 TW_EXCLUDE_TWRPAPP := true
 TW_INCLUDE_NTFS_3G := true
 TW_USE_TOOLBOX := true
+
+# System-as-root
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
